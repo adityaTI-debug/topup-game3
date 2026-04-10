@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Aditya Store - Top Up Fast & Reliable</title>
+<link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@500;600;700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+<style>
+:root {
+    --dark-blue: #020d1f;
+    --neon-blue: #00f2ff;
+    --mid-blue: #0066ff;
+    --deep-blue: #0a192f;
+    --glow: 0 0 15px rgba(0, 242, 255, 0.6);
+}
+* { margin:0; padding:0; box-sizing:border-box; font-family:'Poppins',sans-serif; }
+body { background-color:var(--dark-blue); color:white; display:flex; flex-direction:column; min-height:100vh; overflow-x:hidden;}
+h1,h2,h3,.brand { font-family:'Rajdhani',sans-serif; font-weight:700; }
+.page-transition { animation:fadeIn 0.5s ease-out forwards; }
+@keyframes fadeIn { from{opacity:0;transform:translateY(20px);} to{opacity:1;transform:translateY(0);} }
+
+.container{ max-width:1000px;margin:auto;padding:20px;width:100%; }
+.banner-container{ width:100%; aspect-ratio:16/9; background:var(--deep-blue); border-radius:15px; overflow:hidden; border:2px solid var(--neon-blue); box-shadow:var(--glow); margin-bottom:20px; }
+.banner-container img{ width:100%; height:100%; object-fit:cover; }
+.promo-text{text-align:center;margin-bottom:30px;}
+.promo-text h2{ font-size:2.2rem; color:var(--neon-blue); text-transform:uppercase; }
+.game-grid{ display:grid; grid-template-columns:repeat(2,1fr); gap:15px;}
+.game-card{ background:var(--deep-blue); border:1px solid var(--mid-blue); border-radius:12px; overflow:hidden; cursor:pointer; transition:0.3s;}
+.game-card:hover{ transform:scale(1.03); border-color:var(--neon-blue); box-shadow:var(--glow);}
+.game-card img{ width:100%; height:130px; object-fit:cover;}
+.game-card h3{ padding:10px;text-align:center;font-size:1rem;}
+
+.faq-section{ margin-top:50px; }
+.faq-item{ background: rgba(255,255,255,0.05); margin-bottom:10px; border-radius:8px; border:1px solid var(--mid-blue); overflow:hidden; }
+.faq-question{ padding:15px; cursor:pointer; display:flex; justify-content:space-between; align-items:center; font-weight:600; color:var(--neon-blue);}
+.faq-answer{ padding:0 15px; max-height:0; overflow:hidden; transition:0.3s ease-out; color:#ccc; font-size:0.9rem;}
+.faq-item.active .faq-answer{ padding:15px; max-height:200px; border-top:1px solid var(--mid-blue);}
+
+#page2{ display:none; }
+.section-box{ background:var(--deep-blue); border-radius:15px; padding:20px; margin-bottom:20px; border-left:5px solid var(--neon-blue);}
+.input-group input{ width:100%; padding:12px; margin:8px 0; background:#000; border:1px solid var(--mid-blue); color:#fff; border-radius:8px;}
+.diamond-grid{ display:grid; grid-template-columns:repeat(2,1fr); gap:10px;}
+.diamond-item{ background: rgba(255,255,255,0.05); border:1px solid var(--mid-blue); padding:15px; border-radius:10px; cursor:pointer; text-align:center;}
+.diamond-item.selected{ background:var(--mid-blue); border-color:var(--neon-blue); box-shadow:var(--glow); }
+
+.submit-btn{ width:100%; background:var(--neon-blue); color:#000; padding:15px; border:none; border-radius:10px; font-weight:bold; font-size:1.1rem; cursor:pointer;}
+.back-btn{ background:transparent; border:1px solid var(--neon-blue); color:var(--neon-blue); padding:8px 15px; border-radius:5px; cursor:pointer; margin-bottom:20px;}
+
+footer{ margin-top:auto; padding:30px 10px; text-align:center; background: rgba(197, 35, 35, 0.3); border-top:1px solid var(--mid-blue); color:#888; font-size:0.8rem; }
+
+.float-btn{ position:fixed; bottom:20px; width:55px; height:55px; border-radius:50%; display:flex; align-items:center; justify-content:center; color:white; font-size:25px; z-index:99;}
+.wa-btn{ right:20px; background:#25d366;}
+.tele-btn{ right:85px; background:#0088cc;}
+
+.pay-item{ background: rgba(255,255,255,0.05); border:1px solid var(--mid-blue); padding:15px; margin-bottom:10px; border-radius:10px; cursor:pointer; display:flex; justify-content:space-between; align-items:center;}
+.pay-item.selected{ background:var(--mid-blue); border-color:var(--neon-blue); box-shadow:var(--glow); }
+
+@media(max-width:500px){ .game-grid{ grid-template-columns:repeat(2,1fr);} .promo-text h2{ font-size:1.6rem; } }
+</style>
+</head>
+<body>
+
+<!-- Floating Buttons -->
+<a href="https://wa.me/+6285827690986" class="float-btn wa-btn"><i class="fab fa-whatsapp"></i></a>
+<a href="https://t.me/madindindun0" class="float-btn tele-btn"><i class="fab fa-telegram-plane"></i></a>
+
+<!-- PAGE 1 -->
+<div id="page1" class="page-transition">
+    <div class="container">
+        <div class="banner-container">
+            <img src="c:\Users\Aditya TI\Downloads\Aditya Store logo redesign.png">
+        </div>
+        <div class="promo-text">
+            <h2>ADITYA STORE</h2>
+            <p>Top Up Game Paling Aman dan Proses Cepat</p>
+        </div>
+
+        <div class="game-grid">
+            <div class="game-card" onclick="openGame('ml')"><img src="ml.jpg" alt="ML"><h3>Mobile Legends</h3></div>
+            <div class="game-card" onclick="openGame('ff')"><img src="ff.jpg" alt="FF"><h3>Free Fire</h3></div>
+            <div class="game-card" onclick="openGame('pubg')"><img src="pubg.jpg" alt="PUBG"><h3>PUBG Mobile</h3></div>
+            <div class="game-card" onclick="openGame('efb')"><img src="efb.jpg" alt="EFB"><h3>eFootball 2024</h3></div>
+        </div>
+
+        <div class="faq-section">
+            <h2 style="color: var(--neon-blue); margin-bottom: 20px; border-bottom:2px solid var(--neon-blue); display:inline-block;">FAQ / PERTANYAAN</h2>
+            <div class="faq-item"><div class="faq-question" onclick="toggleFaq(this)">Berapa lama proses top up? <i class="fas fa-chevron-down"></i></div><div class="faq-answer">Kebiasaannya 1-10 minit.</div></div>
+            <div class="faq-item"><div class="faq-question" onclick="toggleFaq(this)">Apakah store ini selamat? <i class="fas fa-chevron-down"></i></div><div class="faq-answer">Ya, trusted seller dengan ribuan testimoni.</div></div>
+            <div class="faq-item"><div class="faq-question" onclick="toggleFaq(this)">Salah ID apa terjadi? <i class="fas fa-chevron-down"></i></div><div class="faq-answer">Pastikan ID benar, kami tidak bertanggungjawab jika salah.</div></div>
+        </div>
+    </div>
+</div>
+
+<!-- PAGE 2 -->
+<div id="page2">
+    <div class="container page-transition">
+        <button class="back-btn" onclick="goBack()"><i class="fas fa-arrow-left"></i> KEMBALI</button>
+        <h1 id="gameTitle" style="color: var(--neon-blue); margin-bottom:20px;">GAME TITLE</h1>
+
+        <div class="section-box">
+            <h3>1. MAKLUMAT AKAUN</h3>
+            <div id="dynamicForm" class="input-group"></div>
+        </div>
+
+        <div class="section-box">
+            <h3>2. PILIH NOMINAL</h3>
+            <div id="diamondList" class="diamond-grid"></div>
+        </div>
+
+        <div class="section-box">
+            <h3>3. PEMBAYARAN (INDONESIA)</h3>
+            <div class="pay-item" onclick="selectPay(this,'QRIS')"><span>QRIS</span><i class="fas fa-qrcode"></i></div>
+            <div class="pay-item" onclick="selectPay(this,'Dana')"><span>Dana</span><i class="fas fa-wallet"></i></div>
+            <div class="pay-item" onclick="selectPay(this,'GoPay')"><span>GoPay</span><i class="fas fa-wallet"></i></div>
+            <div class="pay-item" onclick="selectPay(this,'OVO')"><span>OVO</span><i class="fas fa-wallet"></i></div>
+            <div class="pay-item" onclick="selectPay(this,'SeaBank')"><span>SeaBank</span><i class="fas fa-university"></i></div>
+        </div>
+
+        <button class="submit-btn" onclick="sendOrder()">BELI SEKARANG <i class="fab fa-whatsapp"></i></button>
+    </div>
+</div>
+
+<footer>
+    <p>© 2026 Aditya Store. All Rights Reserved.</p>
+    <p style="margin-top:5px; opacity:0.5;">Gaming Top Up Provider Indonesia</p>
+</footer>
+
+<script>
+const priceData = {
+ ml:[{d:"140 Diamond",p:"Rp35.000"},{d:"165 Diamond",p:"Rp47.000"},{d:"182 Diamond",p:"Rp53.000"},{d:"210 Diamond",p:"Rp58.000"},{d:"284 Diamond",p:"Rp73.000"},{d:"326 Diamond",p:"Rp80.000"},{d:"397 Diamond",p:"Rp98.000"},{d:"513 Diamond",p:"Rp126.000"},{d:"569 Diamond",p:"Rp133.000"},{d:"639 Diamond",p:"Rp147.000"},{d:"870 Diamond",p:"Rp206.000"},{d:"1071 Diamond",p:"Rp259.000"},{d:"1145 Diamond",p:"Rp270.000"},{d:"1355 Diamond",p:"Rp301.000"},{d:"1446 Diamond",p:"Rp319.000"},{d:"1530 Diamond",p:"Rp340.000"}],
+ ff:[{d:"100 Diamond",p:"Rp12.000"},{d:"210 Diamond",p:"Rp28.000"},{d:"310 Diamond",p:"Rp35.000"},{d:"400 Diamond",p:"Rp52.000"},{d:"550 Diamond",p:"Rp64.000"},{d:"625 Diamond",p:"Rp73.000"},{d:"750 Diamond",p:"Rp93.000"},{d:"859 Diamond",p:"Rp100.000"},{d:"995 Diamond",p:"Rp115.000"},{d:"1040 Diamond",p:"Rp122.000"},{d:"1130 Diamond",p:"Rp171.000"},{d:"1580 Diamond",p:"Rp184.000"},{d:"2180 Diamond",p:"Rp247.000"},{d:"2200 Diamond",p:"Rp298.000"},{d:"3240 Diamond",p:"Rp369.000"},{d:"4360 Diamond",p:"Rp493.000"},{d:"5600 Diamond",p:"Rp614.000"}],
+ pubg:[{d:"60 UC",p:"Rp14.000"},{d:"300+25 UC",p:"Rp67.000"},{d:"600+60 UC",p:"Rp134.000"},{d:"1500+300 UC",p:"Rp334.000"},{d:"3000+850 UC",p:"Rp665.000"},{d:"6000+2100 UC",p:"Rp1.327.000"},{d:"12000+4200 UC",p:"Rp2.653.000"},{d:"18000+6300 UC",p:"Rp3.976.000"},{d:"24000+8400 UC",p:"Rp5.302.000"},{d:"30000+10500 UC",p:"Rp6.629.000"}],
+ efb:[{d:"130 Coin",p:"Rp17.000"},{d:"300 Coin",p:"Rp37.000"},{d:"550 Coin",p:"Rp66.000"},{d:"750 Coin",p:"Rp87.000"},{d:"1040 Coin",p:"Rp122.000"},{d:"2130 Coin",p:"Rp241.000"},{d:"3250 Coin",p:"Rp357.000"},{d:"5700 Coin",p:"Rp589.000"}]
+};
+
+let selectedGame="",selectedItem="",selectedPrice="",selectedPay="";
+
+function openGame(game){
+    selectedGame=game;
+    document.getElementById('page1').style.display='none';
+    document.getElementById('page2').style.display='block';
+    window.scrollTo(0,0);
+
+    const names={ml:'Mobile Legends',ff:'Free Fire',pubg:'PUBG Mobile',efb:'eFootball 2024'};
+    document.getElementById('gameTitle').innerText=names[game];
+
+    let form="";
+    if(game==='ml') form='<input type="number" id="id1" placeholder="User ID"><input type="number" id="id2" placeholder="Zone ID">';
+    else if(game==='ff') form='<input type="number" id="id1" placeholder="Player ID">';
+    else if(game==='pubg') form='<input type="number" id="id1" placeholder="Character ID">';
+    else form='<input type="text" id="id1" placeholder="Email Konami"><input type="text" id="id2" placeholder="Password"><input type="text" id="id3" placeholder="Device"><input type="text" id="id4" placeholder="In Game Name">';
+    document.getElementById('dynamicForm').innerHTML=form;
+
+    let list="";
+    priceData[game].forEach(item=>{
+        list+=`<div class="diamond-item" onclick="selectDiamond(this,'${item.d}','${item.p}')"><b>${item.d}</b><br><small>${item.p}</small></div>`;
+    });
+    document.getElementById('diamondList').innerHTML=list;
+}
+
+function goBack(){ document.getElementById('page1').style.display='block'; document.getElementById('page2').style.display='none'; }
+function selectDiamond(el,name,price){ document.querySelectorAll('.diamond-item').forEach(d=>d.classList.remove('selected')); el.classList.add('selected'); selectedItem=name; selectedPrice=price; }
+function selectPay(el,name){ document.querySelectorAll('.pay-item').forEach(p=>p.classList.remove('selected')); el.classList.add('selected'); selectedPay=name; }
+function toggleFaq(el){ el.parentElement.classList.toggle('active'); }
+
+function sendOrder(){
+    if(!selectedItem||!selectedPay){ alert("Pilih item dan pembayaran!"); return; }
+    let account="";
+    if(selectedGame==='ml') account=`ID: ${document.getElementById('id1').value} (${document.getElementById('id2').value})`;
+    else if(selectedGame==='ff'||selectedGame==='pubg') account=`ID: ${document.getElementById('id1').value}`;
+    else account=`Email: ${document.getElementById('id1').value}\nPass: ${document.getElementById('id2').value}\nDevice: ${document.getElementById('id3').value}\nIGN: ${document.getElementById('id4').value}`;
+
+    const text=`*ORDER BARU - ADITYA STORE*\nGame: ${selectedGame.toUpperCase()}\nDetail: ${account}\nItem: ${selectedItem}\nHarga: ${selectedPrice}\nBayar: ${selectedPay}`;
+    window.open(`https://wa.me/6285827690986?text=${encodeURIComponent(text)}`);
+}
+</script>
+</body>
+</html>
